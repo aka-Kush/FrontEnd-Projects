@@ -9,8 +9,7 @@ const colorInp = document.getElementById("color");
 
 const ctx = canvas.getContext("2d");
 
-// let size = 20;
-let size = sizeSpan.innerText;
+let size = 20;
 let isPressed = false;
 let color = "black";
 
@@ -59,7 +58,7 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 
-// my work
+//* my work
 let counter = 5;
 
 // Increase Button
@@ -97,4 +96,3 @@ clear.addEventListener("click", () => {
 
 // Input color
 // let sized = parseInt(sizeSpan.value);
-
