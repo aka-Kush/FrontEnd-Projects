@@ -1,15 +1,13 @@
-//* NOT COMPLETE
-
 const canvas = document.getElementById("canvas");
-const increase = document.getElementById("increase");
-const decrease = document.getElementById("decrease");
-let sizeSpan = document.getElementById("size");
-const clear = document.getElementById("clear");
+const increaseBtn = document.getElementById("increase");
+const decreaseBtn = document.getElementById("decrease");
+const sizeSpan = document.getElementById("size");
+const clearBtn = document.getElementById("clear");
 const colorInp = document.getElementById("color");
 
 const ctx = canvas.getContext("2d");
 
-let size = 20;
+let size = 10;
 let isPressed = false;
 let color = "black";
 
@@ -57,42 +55,34 @@ function drawLine(x1, y1, x2, y2) {
     ctx.stroke();
 }
 
+function updateSizeSpan() {
+    sizeSpan.innerText = size;
+}
 
-//* my work
-let counter = 5;
-
-// Increase Button
-increase.addEventListener("click", () => {
-    counter += 5;
-
-    if (counter <= 20) {
-        sizeSpan.innerText = counter;
-    }
-    else {
-        counter = 20;
-        sizeSpan.innerText = "20";
-    }
-
+colorInp.addEventListener("change", (event) => {
+    color = event.target.value;
 })
 
-// Decrease Button
-decrease.addEventListener("click", () => {
-    counter -= 5;
-    
-    if (counter > 0) {
-        sizeSpan.innerText = counter;
-    }
-    else {
-        counter = 0;
-        sizeSpan.innerText = "0";
+increaseBtn.addEventListener("click", () => {
+    size += 5;
+
+    if (size > 50) {
+        size = 50;
     }
 
+    updateSizeSpan();
 })
 
-// Clear Button
-clear.addEventListener("click", () => {
-    ctx.clearRect(0, 0, 800, 800);
+decreaseBtn.addEventListener("click", () => {
+    size -= 5;
+
+    if (size < 5) {
+        size = 5;
+    }
+
+    updateSizeSpan();
 })
 
-// Input color
-// let sized = parseInt(sizeSpan.value);
+clearBtn.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+})
