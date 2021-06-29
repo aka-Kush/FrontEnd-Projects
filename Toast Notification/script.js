@@ -9,7 +9,7 @@ function createNotification(){
     const notification = document.createElement("div");
     notification.classList.add("toast");
     notification.innerText = getRandomMessage();
-    
+
     notification.classList.add(notification.innerText == "Success" ? "success" : "default");
     notification.classList.add(notification.innerText == "Info" ? "info" : "default");
     notification.classList.add(notification.innerText == "Error" ? "error" : "default");
