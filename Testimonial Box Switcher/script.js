@@ -11,6 +11,8 @@ let config = {
     redirect: 'follow'
 };
 
+//! DEAL WITH CROSS-ORIGIN ISSUE
+
 async function fetchDetails(){
     const res = await fetch(`https://testimonialapi.toolcarton.com/api/${index}`, config);
     const data = await res.json();
